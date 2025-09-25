@@ -26,10 +26,10 @@
               <%= link_to '<i class="fa-solid fa-home"></i> Home'.html_safe, user_path(current_user.id), class: 'nav-link text-light' %>
             </li>
             <li class="nav-item">
-              <%= link_to '<i class="fa-solid fa-users"></i> Users'.html_safe, "/", class: 'nav-link text-light' %>
+              <%= link_to '<i class="fa-solid fa-users"></i> Users'.html_safe, users_path, class: 'nav-link text-light' %>
             </li>
             <li class="nav-item">
-              <%= link_to '<i class="fa-solid fa-book-open"></i> Books'.html_safe, "/", class: 'nav-link text-light' %>
+              <%= link_to '<i class="fa-solid fa-book-open"></i> Books'.html_safe, books_path, class: 'nav-link text-light' %>
             </li>
             <li class="nav-item">
               <%= link_to "<i class='fa-solid fa-sign-out-alt'></i> Log out".html_safe, destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
@@ -54,7 +54,10 @@
       </nav>
     </header>
     <main class="mb-auto">
-    <%= yield %>
+      <div>
+        <%= flash[:notice] %>
+      </div>
+      <%= yield %>
     </main>
     <footer>
       <div class="container mt-5">
